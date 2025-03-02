@@ -35,110 +35,178 @@ Ensure you have the following installed:
 ```sh
 git clone https://github.com/ankitvishwakarma91/todo-list-api.git
 cd todo-list-api
-
-2. Configure database
-
+2️⃣ Configure database
 Modify application.properties or application.yml (for MySQL or PostgreSQL):
 
+properties
+Copy
+Edit
 spring.datasource.url=jdbc:mysql://localhost:3306/tododb
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
-
 For in-memory H2 database, use:
 
+properties
+Copy
+Edit
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.h2.console.enabled=true
-
-3. Build & Run
-
+3️⃣ Build & Run
+sh
+Copy
+Edit
 mvn clean install
 mvn spring-boot:run
+The application will start at: http://localhost:8080
 
-The application will start at http://localhost:8080
+📌 API Endpoints
+🔹 1. User Registration
+📍 Endpoint: POST /api/auth/register
 
-API Endpoints
-
-1. User Registration
-
-Endpoint: POST /api/auth/register
-
+📤 Request Body:
+json
+Copy
+Edit
 {
   "email": "john@example.com",
   "password": "password123"
 }
-
-Response:
-
+📥 Response:
+json
+Copy
+Edit
 {
   "message": "User registered successfully!"
 }
+🔹 2. User Login
+📍 Endpoint: POST /api/auth/login
 
-2. User Login
-
-Endpoint: POST /api/auth/login
-
+📤 Request Body:
+json
+Copy
+Edit
 {
   "username": "john_doe",
   "password": "password123"
 }
-
-Response:
-
+📥 Response:
+json
+Copy
+Edit
 {
   "token": "your-jwt-token"
 }
+🔐 Use the received JWT token in the Authorization header for protected endpoints:
 
-Use the received JWT token in the Authorization header for protected endpoints:
-
+sh
+Copy
+Edit
 Authorization: Bearer your-jwt-token
+🔹 3. Create a Todo
+📍 Endpoint: POST /api/todo/add
+📌 Headers:
 
-3. Create a Todo
-
-Endpoint: POST /api/todo/add
-Headers: Authorization: Bearer your-jwt-token
-
+sh
+Copy
+Edit
+Authorization: Bearer your-jwt-token
+📤 Request Body:
+json
+Copy
+Edit
 {
   "title": "Buy groceries",
   "description": "Milk, Bread, Eggs",
   "completed": false
 }
+📥 Response:
+json
+Copy
+Edit
+{
+  "id": 1,
+  "title": "Buy groceries",
+  "description": "Milk, Bread, Eggs",
+  "completed": false,
+  "createdAt": "2025-03-02T12:00:00Z"
+}
+🔹 4. Get All Todos
+📍 Endpoint: GET /api/todo
+📌 Headers:
 
-4. Get All Todos
+sh
+Copy
+Edit
+Authorization: Bearer your-jwt-token
+📥 Response:
+json
+Copy
+Edit
+[
+  {
+    "id": 1,
+    "title": "Buy groceries",
+    "description": "Milk, Bread, Eggs",
+    "completed": false
+  },
+  {
+    "id": 2,
+    "title": "Finish project",
+    "description": "Complete the backend API",
+    "completed": true
+  }
+]
+🔹 5. Update a Todo
+📍 Endpoint: PUT /api/todo/update/{id}
+📌 Headers:
 
-Endpoint: GET /api/todo
-Headers: Authorization: Bearer your-jwt-token
-
-5. Update a Todo
-
-Endpoint: PUT /api/todo/update/{id}
-Headers: Authorization: Bearer your-jwt-token
-
+sh
+Copy
+Edit
+Authorization: Bearer your-jwt-token
+📤 Request Body:
+json
+Copy
+Edit
 {
   "title": "Buy groceries",
   "description": "Milk, Bread, Eggs, Butter",
   "completed": true
 }
+📥 Response:
+json
+Copy
+Edit
+{
+  "id": 1,
+  "title": "Buy groceries",
+  "description": "Milk, Bread, Eggs, Butter",
+  "completed": true
+}
+🔹 6. Delete a Todo
+📍 Endpoint: DELETE /api/todo/delete/{id}
+📌 Headers:
 
-6. Delete a Todo
-
-Endpoint: DELETE /api/todo/delete/{id}
-Headers: Authorization: Bearer your-jwt-token
-
-Testing the API
-
+sh
+Copy
+Edit
+Authorization: Bearer your-jwt-token
+📥 Response:
+json
+Copy
+Edit
+{
+  "message": "Todo deleted successfully"
+}
+🧪 Testing the API
 You can test the API using:
 
-Postman
-
-cURL
-
-Swagger UI (if configured)
-
-Contributing
-
+🟠 Postman
+📟 cURL
+📜 Swagger UI (if configured)
+🤝 Contributing
 Feel free to contribute by submitting issues or pull requests.
 
-License
-
+📜 License
 This project is licensed under the MIT License.
