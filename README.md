@@ -1,45 +1,40 @@
 # Todo List RestApi Using Spring Boot 
-This is a Todo List REST API built with Spring Boot. It allows users to create an account, manage their todos, and perform CRUD operations on their tasks.
+This is a **Todo List REST API** built with **Spring Boot**. It allows users to create an account, manage their todos, and perform CRUD operations on their tasks.
 
-Features
+---
 
-User authentication and account creation
+## ✨ Features
+- ✅ User authentication and account creation  
+- ✅ Create, read, update, and delete todo items  
+- ✅ Secure endpoints with authentication  
 
-Create, read, update, and delete todo items
+---
 
-Secure endpoints with authentication
+## 🛠 Tech Stack
+- ☕ **Spring Boot** (Backend Framework)  
+- 🔒 **Spring Security** (Authentication & Authorization)  
+- 🗄 **Spring Data JPA** (Database ORM)  
+- 💾 **H2 / MySQL** (Database)  
+- 🔑 **JWT** (Authentication)  
 
-Tech Stack
+---
 
-Spring Boot (Backend Framework)
+## 🚀 Getting Started
 
-Spring Security (Authentication & Authorization)
+### 📌 Prerequisites  
+Ensure you have the following installed:  
+- **Java 17+**  
+- **Maven 3.6+**  
+- **PostgreSQL/MySQL** (or use H2 for in-memory DB)  
 
-Spring Data JPA (Database ORM)
+---
 
-H2 / MySQL (Database)
+### 🔧 Installation & Running
 
-JWT (Authentication)
-
-Getting Started
-
-Prerequisites
-
-Ensure you have the following installed:
-
-Java 17+
-
-Maven 3.6+
-
-PostgreSQL/MySQL (or use H2 for in-memory DB)
-
-Installation & Running
-
-1. Clone the repository
-
- git clone [https://github.com/ankitvishwakarma91/todo-list-api.git](https://github.com/ankitvishwakarma91/Todo-List-Api.git
-)
- cd todo-list-api
+#### 1️⃣ Clone the repository  
+```sh
+git clone https://github.com/ankitvishwakarma91/todo-list-api.git
+cd todo-list-api
 
 2. Configure database
 
