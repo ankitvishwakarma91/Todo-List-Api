@@ -39,23 +39,16 @@ cd todo-list-api
 Modify application.properties or application.yml (for MySQL or PostgreSQL):
 
 properties
-Copy
-Edit
 spring.datasource.url=jdbc:mysql://localhost:3306/tododb
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
 For in-memory H2 database, use:
 
-properties
-Copy
-Edit
 spring.datasource.url=jdbc:h2:mem:testdb
 spring.h2.console.enabled=true
 3️⃣ Build & Run
 sh
-Copy
-Edit
 mvn clean install
 mvn spring-boot:run
 The application will start at: http://localhost:8080
@@ -66,16 +59,12 @@ The application will start at: http://localhost:8080
 
 📤 Request Body:
 json
-Copy
-Edit
 {
   "email": "john@example.com",
   "password": "password123"
 }
 📥 Response:
 json
-Copy
-Edit
 {
   "message": "User registered successfully!"
 }
@@ -84,37 +73,28 @@ Edit
 
 📤 Request Body:
 json
-Copy
-Edit
 {
   "username": "john_doe",
   "password": "password123"
 }
 📥 Response:
 json
-Copy
-Edit
 {
   "token": "your-jwt-token"
 }
 🔐 Use the received JWT token in the Authorization header for protected endpoints:
 
 sh
-Copy
-Edit
 Authorization: Bearer your-jwt-token
 🔹 3. Create a Todo
 📍 Endpoint: POST /api/todo/add
 📌 Headers:
 
 sh
-Copy
-Edit
+
 Authorization: Bearer your-jwt-token
 📤 Request Body:
 json
-Copy
-Edit
 {
   "title": "Buy groceries",
   "description": "Milk, Bread, Eggs",
@@ -122,8 +102,6 @@ Edit
 }
 📥 Response:
 json
-Copy
-Edit
 {
   "id": 1,
   "title": "Buy groceries",
@@ -136,13 +114,10 @@ Edit
 📌 Headers:
 
 sh
-Copy
-Edit
+
 Authorization: Bearer your-jwt-token
 📥 Response:
 json
-Copy
-Edit
 [
   {
     "id": 1,
@@ -162,13 +137,10 @@ Edit
 📌 Headers:
 
 sh
-Copy
-Edit
+
 Authorization: Bearer your-jwt-token
 📤 Request Body:
 json
-Copy
-Edit
 {
   "title": "Buy groceries",
   "description": "Milk, Bread, Eggs, Butter",
@@ -176,8 +148,6 @@ Edit
 }
 📥 Response:
 json
-Copy
-Edit
 {
   "id": 1,
   "title": "Buy groceries",
@@ -189,13 +159,11 @@ Edit
 📌 Headers:
 
 sh
-Copy
-Edit
+
 Authorization: Bearer your-jwt-token
 📥 Response:
 json
-Copy
-Edit
+
 {
   "message": "Todo deleted successfully"
 }
@@ -204,7 +172,6 @@ You can test the API using:
 
 🟠 Postman
 📟 cURL
-📜 Swagger UI (if configured)
 🤝 Contributing
 Feel free to contribute by submitting issues or pull requests.
 
